@@ -8,6 +8,7 @@ import User from '../models/user.model';
 import { loginSchema, signupSchema } from '../schemas/auth.schema';
 import { AppError } from '../utils/error.util';
 import { generateToken } from '../utils/jwt.util';
+import { PRODUCTION } from '../config/config';
 
 /**
  * Controller for authentication-related endpoints.
@@ -104,8 +105,8 @@ class AuthController {
         try {
             res.clearCookie('jwt', {
                 httpOnly: true,
-                sameSite: 'none',
-                secure: process.env.NODE_ENV === 'production'
+                sameSite: PRODUCTION ? 'none' : 'lax',
+                secure: PRODUCTION
             });
 
             res.status(200).json({

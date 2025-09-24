@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Response } from 'express';
-import { JWT_SECRET } from '../config/config';
+import { JWT_SECRET, PRODUCTION } from '../config/config';
 import { AppError } from './error.util';
 
 export const generateToken = (userData: any, res: Response): string => {
@@ -8,11 +8,13 @@ export const generateToken = (userData: any, res: Response): string => {
         expiresIn: '1d'
     });
 
+    console.log(token);
+
     res.cookie('jwt', token, {
         maxAge: 1 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        sameSite: 'none',
-        secure: process.env.NODE_ENV === 'production'
+        sameSite: PRODUCTION ? 'none' : 'lax', // use 'none' when in production because it need secure to be true
+        secure: PRODUCTION
     });
 
     return token;

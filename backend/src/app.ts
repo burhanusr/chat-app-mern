@@ -29,12 +29,6 @@ export default class App {
     /** Base API route prefix */
     private readonly baseRoute = '/api/v1';
 
-    /** Project root directory */
-    // private readonly __dirname = path.resolve();
-
-    /** Indicates whether the app is running in production mode */
-    // private readonly isProduction = process.env.NODE_ENV === 'production';
-
     /**
      * Initializes the application by setting up configurations and middleware.
      */
@@ -43,11 +37,6 @@ export default class App {
         this.configureMiddleware();
         this.configureRoutes([MainController, AuthController, UserController, MessageController]);
         this.configureErrorHandling(errorHandler);
-
-        // Serve frontend in production mode AFTER handling errors
-        // if (this.isProduction) {
-        //     this.serveFrontend();
-        // }
     }
 
     /**
@@ -78,9 +67,9 @@ export default class App {
      * @param {Array<any>} controllers - List of controller classes to register routes for.
      */
     private configureRoutes(controllers: any[]): void {
-        logging.log('--------------------------------------------');
-        logging.log('Define Routes');
-        logging.log('--------------------------------------------');
+        // logging.log('--------------------------------------------');
+        // logging.log('Define Routes');
+        // logging.log('--------------------------------------------');
 
         for (const Controller of controllers) {
             const controller = new Controller();
@@ -98,14 +87,14 @@ export default class App {
 
                         if (handlers) {
                             this.app[method](this.baseRoute + controllerPath + routePath, handlers);
-                            logging.log('Loading route: ', method, this.baseRoute + controllerPath + routePath);
+                            // logging.log('Loading route: ', method, this.baseRoute + controllerPath + routePath);
                         }
                     }
                 }
             }
         }
 
-        logging.log('--------------------------------------------');
+        // logging.log('--------------------------------------------');
     }
 
     /**
@@ -121,19 +110,6 @@ export default class App {
         // Global error handler
         this.app.use(globalErrorHandler);
     }
-
-    /**
-     * Serves the frontend as a static site and handles SPA fallback.
-     */
-    // private serveFrontend(): void {
-    //     const frontendPath = path.join(this.__dirname, '../frontend/dist');
-    //     this.app.use(express.static(frontendPath));
-
-    //     // SPA Fallback: Serve index.html for unknown routes
-    //     this.app.get('*', (req: Request, res: Response) => {
-    //         res.sendFile(path.join(frontendPath, 'index.html'));
-    //     });
-    // }
 
     /**
      * Connects the application to the database.

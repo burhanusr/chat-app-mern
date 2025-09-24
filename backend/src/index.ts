@@ -24,14 +24,13 @@ export const startServer = async (): Promise<void> => {
 
         httpServer = socketServer;
         httpServer.listen(serverConfig.PORT, () => {
-            logging.log(`Server Started: ${serverConfig.SERVER_HOSTNAME}:${serverConfig.PORT}`);
-            logging.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+            logging.info(`Server Started: ${serverConfig.SERVER_HOSTNAME}:${serverConfig.PORT}`);
+            logging.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
         });
 
         handleShutdown();
     } catch (error) {
-        logging.log(`Server startup failed: `);
-        logging.error(error);
+        logging.error(`Server startup failed: ${error} `);
         process.exit(1);
     }
 };

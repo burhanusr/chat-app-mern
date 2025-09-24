@@ -14,8 +14,8 @@ interface LoginFormData {
 function LoginPage() {
    const [showPassword, setShowPassword] = useState<boolean>(false);
    const [formData, setFormData] = useState<LoginFormData>({
-      email: '',
-      password: ''
+      email: 'emma.thompson@example.com',
+      password: '123456'
    });
 
    const { login, isLoggingIn } = useAuthStore();

@@ -2,8 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 import { AppError } from './../utils/error.util';
 
 export const errorHandler = (err: Error | AppError, req: Request, res: Response, next: NextFunction) => {
-    console.error(`[Error]: ${err.message}`);
-    console.error(err.stack);
+    logging.error(err.message);
+    // console.error(err.stack);
 
     let statusCode = 500;
     let message = 'Something went wrong';
