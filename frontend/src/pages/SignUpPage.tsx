@@ -1,4 +1,4 @@
-import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, User } from 'lucide-react';
+import { Eye, EyeOff, Loader2, Lock, Mail, User } from 'lucide-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
@@ -55,15 +55,15 @@ function SignUpPage() {
    };
 
    return (
-      <div className="grid min-h-screen pt-16 lg:grid-cols-2">
+      <div className="grid min-h-screen pt-14 lg:grid-cols-2">
          {/* left side */}
          <div className="flex flex-col items-center justify-center p-6 sm:p-12">
             <div className="w-full max-w-md space-y-8">
                {/* LOGO */}
                <div className="mb-8 text-center">
                   <div className="group flex flex-col items-center gap-2">
-                     <div className="bg-primary/10 group-hover:bg-primary/20 flex size-12 items-center justify-center rounded-xl transition-colors">
-                        <MessageSquare className="text-primary size-6" />
+                     <div className="size-20">
+                        <img src="/logo.svg" />
                      </div>
                      <h1 className="mt-2 text-2xl font-bold">Create Account</h1>
                      <p className="text-base-content/60">Get started with your free account</p>

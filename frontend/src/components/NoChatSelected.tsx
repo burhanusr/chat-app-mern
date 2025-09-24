@@ -1,5 +1,3 @@
-import { MessageSquare } from 'lucide-react';
-
 function NoChatSelected() {
    return (
       <div className="bg-base-100/50 flex w-full flex-1 flex-col items-center justify-center p-16">
@@ -7,14 +5,14 @@ function NoChatSelected() {
             {/* Icon Display */}
             <div className="mb-4 flex justify-center gap-4">
                <div className="relative">
-                  <div className="bg-primary/10 flex h-16 w-16 animate-bounce items-center justify-center rounded-2xl">
-                     <MessageSquare className="text-primary h-8 w-8" />
+                  <div className="size-20 animate-bounce">
+                     <img src="/logo.svg" />
                   </div>
                </div>
             </div>
 
             {/* Welcome Text */}
-            <h2 className="text-2xl font-bold">Welcome to Chat App!</h2>
+            <h2 className="text-2xl font-bold">Welcome to HelloSphere!</h2>
             <p className="text-base-content/60">Select a conversation from the sidebar to start chatting</p>
          </div>
       </div>

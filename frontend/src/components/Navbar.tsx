@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
-import { LogOut, MessageSquare, Settings, User } from 'lucide-react';
+import { LogOut, Settings, User } from 'lucide-react';
 
 function Navbar() {
    const { logout, authUser } = useAuthStore();
@@ -11,10 +11,10 @@ function Navbar() {
             <div className="flex h-full items-center justify-between">
                <div className="flex items-center gap-8">
                   <Link to="/" className="flex items-center gap-2.5 transition-all hover:opacity-80">
-                     <div className="bg-primary/10 flex size-9 items-center justify-center rounded-lg">
-                        <MessageSquare className="text-primary h-5 w-5" />
+                     <div className="size-8">
+                        <img src="/logo.svg" />
                      </div>
-                     <h1 className="text-lg font-bold">Chat App</h1>
+                     <h1 className="text-lg font-bold">HelloSphere</h1>
                   </Link>
                </div>
 
