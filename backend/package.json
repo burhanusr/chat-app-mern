@@ -16,7 +16,6 @@
     "dependencies": {
         "@vercel/node": "^5.1.12",
         "bcryptjs": "^3.0.0",
-        "chat-app-mern": "file:..",
         "cloudinary": "^2.5.1",
         "cookie-parser": "^1.4.7",
         "cors": "^2.8.5",
